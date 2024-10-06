@@ -1,0 +1,19 @@
+name: Generate Code from OpenAPI
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate code
+        uses: hatamiarash7/openapi-generator@v0.2.0
+        with:
+          generator: typescript-axios
+          openapi-file: redocly.yml
