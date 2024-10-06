@@ -29,7 +29,7 @@ paths:
                   $ref: '#/components/schemas/PlayerCharacter'
   /player-characters/{playerCharacterId}:
     get:
-      summary: Get a player character by ID
+      summary: Get a specific player character by ID
       operationId: getPlayerCharacterById
       tags:
         - Player Character
