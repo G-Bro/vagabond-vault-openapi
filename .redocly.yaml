@@ -1,14 +1,6 @@
-# See https://redoc.ly/docs/cli/configuration/ for more information.
-apiDefinitions:
-  main: openapi/openapi.yaml
-lint:
-  extends:
-    - recommended
-  rules:
-    no-unused-components: warning
-referenceDocs:
-  htmlTemplate: ./docs/index.html
-  theme:
-    colors:
-      primary:
-        main: "#32329f"
+apis:
+  player-character@v1:
+    root: ./openapi/player-character.yaml
+    x-openapi-ts:
+      output: ./src/generated/player-character
+      package: player-character

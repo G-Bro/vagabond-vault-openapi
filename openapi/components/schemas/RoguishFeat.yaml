@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a roguish feat
+    type: integer
+  code:
+    description: The unique code for a roguish feat
+    type: string
+  name:
+    description: The name of the roguish feat
+    type: string
+  description:
+    description: The description of the roguish feat
+    type: string
+  risks:
+    description: The risks of the roguish feat
+    type: string

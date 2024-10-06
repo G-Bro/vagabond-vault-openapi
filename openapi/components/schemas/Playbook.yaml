@@ -1,0 +1,65 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a drive
+    type: integer
+  code:
+    description: The unique code for a drive
+    type: string
+  name:
+    description: The name of the drive
+    type: string
+  description:
+    description: The description of the drive
+    type: string
+  natures:
+    description: The natures of the drive
+    type: array
+    items:
+      $ref: ./Nature.yaml
+  moves:
+    description: The moves of the drive
+    type: array
+    items:
+      $ref: ./Move.yaml
+  drives:
+    description: The drives of the drive
+    type: array
+    items:
+      $ref: ./Drive.yaml
+  source:
+    description: The source of the drive
+    $ref: ./Source.yaml
+  skills:
+    description: The skills of the drive
+    type: object
+    properties:
+      charm:
+        description: The charm skill of the drive
+        type: integer
+      cunning:
+        description: The cunning skill of the drive
+        type: integer
+      finesse:
+        description: The finesse skill of the drive
+        type: integer
+      luck:
+        description: The luck skill of the drive
+        type: integer
+      might: 
+        description: The might skill of the drive
+        type: integer
+  roguishFeats:
+    description: The roguish feats of the drive
+    type: array
+    items:
+      $ref: ./RoguishFeat.yaml
+  startingValue:
+    description: The starting value of the drive
+    type: integer
+  shortDescription:
+    description: The short description of the drive
+    type: string
+  longDescription:
+    description: The long description of the drive
+    type: string

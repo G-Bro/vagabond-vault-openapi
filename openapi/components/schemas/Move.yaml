@@ -1,0 +1,14 @@
+type: object
+properites:
+  id:
+    description: The unique identifier for a move
+    type: integer
+  code:
+    description: The unique code for a move
+    type: string
+  name:
+    description: The name of the move
+    type: string
+  description:
+    description: The description of the move
+    type: string

@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a drive
+    type: integer
+  code:
+    description: The unique code for a drive
+    type: string
+  name:
+    description: The name of the drive
+    type: string
+  description:
+    description: The description of the drive
+    type: string

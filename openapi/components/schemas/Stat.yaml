@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a stat
+    type: integer
+  code:
+    description: The unique code for a stat
+    type: string
+  name:
+    description: The name of the stat
+    type: string
+  description:
+    description: The description of the stat
+    type: string
+  defaultValue:
+    description: The default value of the stat
+    type: integer

@@ -1,0 +1,11 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a bonus
+    type: integer
+  value:
+    description: The value of the bonus
+    type: integer
+  stat:
+    description: The stat of the bonus
+    $ref: ./Stat.yaml

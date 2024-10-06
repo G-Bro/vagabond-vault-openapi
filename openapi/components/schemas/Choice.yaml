@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a choice
+    type: integer
+  referenceCode:
+    description: The unique reference code for a choice
+    type: string
+  choice:
+    description: The chosen option
+    type: object
+    properties:
+      choiceType:
+        description: The type of choice
+        type: string
+      resource:
+        description: The resource of the choice
+        oneOf:
+          - $ref: ./Move.yaml
+          - $ref: ./Drive.yaml
+          - $ref: ./Nature.yaml
+          - $ref: ./Bonus.yaml
+          - $ref: ./Skill.yaml
+          - $ref: ./RoguishFeat.yaml

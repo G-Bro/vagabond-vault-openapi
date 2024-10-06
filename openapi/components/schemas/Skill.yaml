@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a skill
+    type: integer
+  code:
+    description: The unique code for a skill
+    type: string
+  name:
+    description: The name of the skill
+    type: string
+  description:
+    description: The description of the skill
+    type: string
+  source:
+    description: The source of the skill
+    $ref: ./Source.yaml
+  type:
+    description: The type of the skill
+    type: string
+    enum:
+      - Weapon Skill

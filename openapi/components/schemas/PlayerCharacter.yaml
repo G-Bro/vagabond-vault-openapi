@@ -1,0 +1,63 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a player character
+    type: integer
+  name:
+    description: The name of the player character
+    type: string
+    minLength: 1
+    example: John
+  stats:
+    type: object
+    properties:
+      charm:
+        description: The charm stat of the player character
+        type: integer
+        example: 2
+      cunning:
+        description: The cunning stat of the player character
+        type: integer
+        example: 1
+      finesse:
+        description: The finesse stat of the player character
+        type: integer
+        example: -2
+      luck:
+        description: The luck stat of the player character
+        type: integer
+        example: 1
+      might:
+        description: The might stat of the player character
+        type: integer
+        example: 0
+  moves:
+    type: array
+    items:
+      $ref: ./Move.yaml
+  natures:
+    type: array
+    items:
+      $ref: ./Nature.yaml
+  drives:
+    type: array
+    items:
+      $ref: ./Drive.yaml
+  playbook:
+    $ref: ./Playbook.yaml
+  choices:
+    type: array
+    items:
+      $ref: ./Choice.yaml
+  skills:
+    type: array
+    items:
+      $ref: ./Skill.yaml
+  roguishFeats:
+    type: array
+    items:
+      $ref: ./RoguishFeat.yaml
+  relationships:
+    type: array
+    items:
+      $ref: ./Relationship.yaml

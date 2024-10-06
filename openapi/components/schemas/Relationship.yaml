@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a relationship
+    type: integer
+  faction:
+    description: The faction of the relationship
+    $ref: ./Faction.yaml
+  bonus:
+    description: The bonus of the relationship
+    type: integer
+  prestige:
+    description: The prestige of the relationship
+    type: integer
+  notoriety:
+    description: The notoriety of the relationship
+    type: integer

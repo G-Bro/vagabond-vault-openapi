@@ -1,0 +1,54 @@
+openapi: 3.0.2
+info:
+  title: Player Character API
+  description: >
+    This API definition describes a Player Character API.
+  version: 1.0.0
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: georgehbroadhurst@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /player-characters:
+    get:
+      summary: Get all player characters
+      operationId: getPlayerCharacters
+      tags:
+        - Player Character
+      responses:
+        '200':
+          description: A list of player characters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayerCharacter'
+  /player-characters/{playerCharacterId}:
+    get:
+      summary: Get a player character by ID
+      operationId: getPlayerCharacterById
+      tags:
+        - Player Character
+      parameters:
+        - name: playerCharacterId
+          in: path
+          required: true
+          description: ID of the player character to get
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A player character
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerCharacter'
+components:
+  schemas:
+    PlayerCharacter:
+      $ref: ./components/schemas/PlayerCharacter.yaml
