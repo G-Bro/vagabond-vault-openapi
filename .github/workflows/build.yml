@@ -16,4 +16,4 @@ jobs:
         uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: typescript-axios
-          openapi-file: redocly.yml
+          openapi-file: .redocly.yml
