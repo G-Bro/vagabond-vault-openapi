@@ -12,12 +12,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # - name: Generate code
+      #   uses: hatamiarash7/openapi-generator@v0.3.0
+      #   with:
+      #     generator: typescript-axios
+      #     openapi-file: ./openapi/player-character.yaml
+      #     output-dir: ./clients/player-character
       - name: Generate code
-        uses: hatamiarash7/openapi-generator@v0.3.0
+        uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: typescript-axios
+          generator-tag: latest-release
           openapi-file: ./openapi/player-character.yaml
-          output-dir: ./clients/player-character
+          command-args: |
+            --git-host=github.com \
+            --git-repo-id=vagabond-vault-openapi \
+            --git-user-id=G-Bro \
+            --output=clients/player-character-typescript-axios
       - name: Commit
         run: |
           git config user.name github-actions
