@@ -10,6 +10,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "20"
+      - run: npm i
       - uses: JS-DevTools/npm-publish@v3
         with:
           package: ./clients/player-character-typescript-axios/package.json
