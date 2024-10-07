@@ -29,6 +29,7 @@ jobs:
             --git-repo-id=vagabond-vault-openapi \
             --git-user-id=G-Bro \
             --output=clients/player-character-typescript-axios
+            --additional-properties=npmName=@vagabondvault/player-character
       - name: Commit
         run: |
           git config user.name github-actions
