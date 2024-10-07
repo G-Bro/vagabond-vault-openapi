@@ -13,5 +13,4 @@ jobs:
       - uses: JS-DevTools/npm-publish@v3
         with:
           package: ./clients/player-character-typescript-axios/package.json
-          token: ${{ secrets.GITHUB_TOKEN }}
-          registry: "https://npm.pkg.github.com"
+          token: ${{ secrets.NPM_TOKEN }}
