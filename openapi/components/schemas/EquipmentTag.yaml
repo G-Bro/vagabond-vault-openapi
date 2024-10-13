@@ -12,3 +12,6 @@ properties:
   description:
     description: The description of the equipment tag
     type: string
+  isPositive:
+    description: Whether the equipment tag is positive or negative
+    type: boolean
