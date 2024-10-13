@@ -3,7 +3,7 @@ info:
   title: Player Character API
   description: >
     This API definition describes a Player Character API.
-  version: 1.2.0
+  version: 1.2.1
   contact:
     name: API Support
     url: 'http://www.example.com/support'
