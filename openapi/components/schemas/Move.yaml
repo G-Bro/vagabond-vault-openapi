@@ -1,5 +1,5 @@
 type: object
-properites:
+properties:
   id:
     description: The unique identifier for a move
     type: integer

@@ -1,0 +1,20 @@
+get:
+  summary: Get a specific player character by ID
+  operationId: getPlayerCharacter
+  tags:
+    - Player Character
+  parameters:
+    - name: playerCharacterId
+      in: path
+      required: true
+      description: ID of the player character to get
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: A player character
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/PlayerCharacter.yaml

@@ -1,0 +1,22 @@
+openapi: 3.0.2
+info:
+  title: Player Character API
+  description: >
+    This API definition describes a Player Character API.
+  version: 1.0.0
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: georgehbroadhurst@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /player-characters:
+    $ref: ./paths/player-characters.yaml
+  /player-characters/{playerCharacterId}:
+    $ref: ./paths/player-characters_{playerCharacterId}.yaml
+  /roguish-feats:
+    $ref: ./paths/roguish-feats.yaml
+  /roguish-feats/{roguishFeatId}:
+    $ref: ./paths/roguish-feats_{roguishFeatId}.yaml

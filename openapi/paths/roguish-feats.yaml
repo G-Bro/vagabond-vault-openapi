@@ -1,0 +1,14 @@
+get:
+  summary: Get all roguish feats
+  operationId: listRougishFeats
+  tags:
+    - Roguish Feat
+  responses:
+    '200':
+      description: A list of all roguish feats
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/RoguishFeat.yaml

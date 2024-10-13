@@ -1,0 +1,20 @@
+get:
+  summary: Get a specific roguish feat by ID
+  operationId: getRougishFeat
+  tags:
+    - Roguish Feat
+  parameters:
+    - name: roguishFeatId
+      in: path
+      required: true
+      description: ID of the roguish feat to get
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: A list of all roguish feats
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RoguishFeat.yaml
