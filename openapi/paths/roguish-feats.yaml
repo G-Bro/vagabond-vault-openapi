@@ -1,6 +1,6 @@
 get:
   summary: Get all roguish feats
-  operationId: listRougishFeats
+  operationId: listroguishFeats
   tags:
     - Roguish Feat
   responses:

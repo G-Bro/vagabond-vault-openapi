@@ -1,6 +1,6 @@
 get:
   summary: Get a specific roguish feat by ID
-  operationId: getRougishFeat
+  operationId: getroguishFeat
   tags:
     - Roguish Feat
   parameters:

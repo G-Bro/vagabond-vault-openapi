@@ -3,7 +3,7 @@ info:
   title: Player Character API
   description: >
     This API definition describes a Player Character API.
-  version: 1.1.1
+  version: 1.1.2
   contact:
     name: API Support
     url: 'http://www.example.com/support'
@@ -51,7 +51,7 @@ paths:
   /roguish-feats:
     get:
       summary: Get all roguish feats
-      operationId: listRougishFeats
+      operationId: listroguishFeats
       tags:
         - Roguish Feat
       responses:
@@ -66,7 +66,7 @@ paths:
   /roguish-feats/{roguishFeatId}:
     get:
       summary: Get a specific roguish feat by ID
-      operationId: getRougishFeat
+      operationId: getroguishFeat
       tags:
         - Roguish Feat
       parameters:
