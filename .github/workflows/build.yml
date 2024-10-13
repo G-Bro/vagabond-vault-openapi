@@ -21,7 +21,7 @@ jobs:
             --git-host=github.com \
             --git-repo-id=vagabond-vault-openapi \
             --git-user-id=G-Bro \
-            --output=clients/player-character-typescript-axios \
+            --output=clients/api-typescript-axios \
             --additional-properties=npmName=@vagabondvault/api
       - name: Commit
         run: |
@@ -30,3 +30,16 @@ jobs:
           git add .
           git commit -m "chore: generated clients"
           git push
+  publish:
+    needs: generate_code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - run: npm i
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          package: ./clients/api-typescript-axios/package.json
+          token: ${{ secrets.NPM_TOKEN }}
