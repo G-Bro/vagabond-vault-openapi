@@ -1,0 +1,31 @@
+{
+  "name": "@vagabondvault/api",
+  "version": "1.0.0",
+  "description": "OpenAPI client for @vagabondvault/api",
+  "author": "OpenAPI-Generator Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/G-Bro/vagabond-vault-openapi.git"
+  },
+  "keywords": [
+    "axios",
+    "typescript",
+    "openapi-client",
+    "openapi-generator",
+    "@vagabondvault/api"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "12.11.5 - 12.20.42",
+    "typescript": "^4.0 || ^5.0"
+  }
+}
