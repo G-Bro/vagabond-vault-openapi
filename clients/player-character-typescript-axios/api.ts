@@ -97,7 +97,7 @@ export interface ChoiceChoice {
  * The resource of the choice
  * @export
  */
-export type ChoiceChoiceResource = Bonus | Drive | Nature | RoguishFeat | Skill | object;
+export type ChoiceChoiceResource = Bonus | Drive | Move | Nature | RoguishFeat | Skill;
 
 /**
  * 
@@ -170,6 +170,37 @@ export interface Faction {
 /**
  * 
  * @export
+ * @interface Move
+ */
+export interface Move {
+    /**
+     * The unique identifier for a move
+     * @type {number}
+     * @memberof Move
+     */
+    'id'?: number;
+    /**
+     * The unique code for a move
+     * @type {string}
+     * @memberof Move
+     */
+    'code'?: string;
+    /**
+     * The name of the move
+     * @type {string}
+     * @memberof Move
+     */
+    'name'?: string;
+    /**
+     * The description of the move
+     * @type {string}
+     * @memberof Move
+     */
+    'description'?: string;
+}
+/**
+ * 
+ * @export
  * @interface Nature
  */
 export interface Nature {
@@ -236,10 +267,10 @@ export interface Playbook {
     'natures'?: Array<Nature>;
     /**
      * The moves of the drive
-     * @type {Array<object>}
+     * @type {Array<Move>}
      * @memberof Playbook
      */
-    'moves'?: Array<object>;
+    'moves'?: Array<Move>;
     /**
      * The drives of the drive
      * @type {Array<Drive>}
@@ -346,10 +377,10 @@ export interface PlayerCharacter {
     'stats'?: PlayerCharacterStats;
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<Move>}
      * @memberof PlayerCharacter
      */
-    'moves'?: Array<object>;
+    'moves'?: Array<Move>;
     /**
      * 
      * @type {Array<Nature>}
@@ -630,9 +661,9 @@ export const PlayerCharacterApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPlayerCharacterById: async (playerCharacterId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getPlayerCharacter: async (playerCharacterId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'playerCharacterId' is not null or undefined
-            assertParamExists('getPlayerCharacterById', 'playerCharacterId', playerCharacterId)
+            assertParamExists('getPlayerCharacter', 'playerCharacterId', playerCharacterId)
             const localVarPath = `/player-characters/{playerCharacterId}`
                 .replace(`{${"playerCharacterId"}}`, encodeURIComponent(String(playerCharacterId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -663,7 +694,7 @@ export const PlayerCharacterApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPlayerCharacters: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPlayerCharacters: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/player-characters`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -704,10 +735,10 @@ export const PlayerCharacterApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPlayerCharacterById(playerCharacterId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerCharacter>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPlayerCharacterById(playerCharacterId, options);
+        async getPlayerCharacter(playerCharacterId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerCharactersPlayerCharacterId>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPlayerCharacter(playerCharacterId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayerCharacterApi.getPlayerCharacterById']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PlayerCharacterApi.getPlayerCharacter']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -716,10 +747,10 @@ export const PlayerCharacterApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getPlayerCharacters(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerCharacter>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPlayerCharacters(options);
+        async listPlayerCharacters(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerCharacter>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPlayerCharacters(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayerCharacterApi.getPlayerCharacters']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PlayerCharacterApi.listPlayerCharacters']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -739,8 +770,8 @@ export const PlayerCharacterApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPlayerCharacterById(playerCharacterId: number, options?: RawAxiosRequestConfig): AxiosPromise<PlayerCharacter> {
-            return localVarFp.getPlayerCharacterById(playerCharacterId, options).then((request) => request(axios, basePath));
+        getPlayerCharacter(playerCharacterId: number, options?: RawAxiosRequestConfig): AxiosPromise<PlayerCharactersPlayerCharacterId> {
+            return localVarFp.getPlayerCharacter(playerCharacterId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -748,8 +779,8 @@ export const PlayerCharacterApiFactory = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getPlayerCharacters(options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerCharacter>> {
-            return localVarFp.getPlayerCharacters(options).then((request) => request(axios, basePath));
+        listPlayerCharacters(options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerCharacter>> {
+            return localVarFp.listPlayerCharacters(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -769,8 +800,8 @@ export class PlayerCharacterApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PlayerCharacterApi
      */
-    public getPlayerCharacterById(playerCharacterId: number, options?: RawAxiosRequestConfig) {
-        return PlayerCharacterApiFp(this.configuration).getPlayerCharacterById(playerCharacterId, options).then((request) => request(this.axios, this.basePath));
+    public getPlayerCharacter(playerCharacterId: number, options?: RawAxiosRequestConfig) {
+        return PlayerCharacterApiFp(this.configuration).getPlayerCharacter(playerCharacterId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -780,8 +811,178 @@ export class PlayerCharacterApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PlayerCharacterApi
      */
-    public getPlayerCharacters(options?: RawAxiosRequestConfig) {
-        return PlayerCharacterApiFp(this.configuration).getPlayerCharacters(options).then((request) => request(this.axios, this.basePath));
+    public listPlayerCharacters(options?: RawAxiosRequestConfig) {
+        return PlayerCharacterApiFp(this.configuration).listPlayerCharacters(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+
+/**
+ * RoguishFeatApi - axios parameter creator
+ * @export
+ */
+export const RoguishFeatApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get a specific roguish feat by ID
+         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRougishFeat: async (roguishFeatId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roguishFeatId' is not null or undefined
+            assertParamExists('getRougishFeat', 'roguishFeatId', roguishFeatId)
+            const localVarPath = `/roguish-feats/{roguishFeatId}`
+                .replace(`{${"roguishFeatId"}}`, encodeURIComponent(String(roguishFeatId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Get all roguish feats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRougishFeats: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/roguish-feats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * RoguishFeatApi - functional programming interface
+ * @export
+ */
+export const RoguishFeatApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RoguishFeatApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Get a specific roguish feat by ID
+         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRougishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoguishFeatsRoguishFeatId>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRougishFeat(roguishFeatId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RoguishFeatApi.getRougishFeat']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @summary Get all roguish feats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRougishFeats(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoguishFeat>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRougishFeats(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RoguishFeatApi.listRougishFeats']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * RoguishFeatApi - factory interface
+ * @export
+ */
+export const RoguishFeatApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RoguishFeatApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Get a specific roguish feat by ID
+         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRougishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig): AxiosPromise<RoguishFeatsRoguishFeatId> {
+            return localVarFp.getRougishFeat(roguishFeatId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Get all roguish feats
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRougishFeats(options?: RawAxiosRequestConfig): AxiosPromise<Array<RoguishFeat>> {
+            return localVarFp.listRougishFeats(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * RoguishFeatApi - object-oriented interface
+ * @export
+ * @class RoguishFeatApi
+ * @extends {BaseAPI}
+ */
+export class RoguishFeatApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get a specific roguish feat by ID
+     * @param {number} roguishFeatId ID of the roguish feat to get
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoguishFeatApi
+     */
+    public getRougishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig) {
+        return RoguishFeatApiFp(this.configuration).getRougishFeat(roguishFeatId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Get all roguish feats
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RoguishFeatApi
+     */
+    public listRougishFeats(options?: RawAxiosRequestConfig) {
+        return RoguishFeatApiFp(this.configuration).listRougishFeats(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
