@@ -17,3 +17,4 @@ jobs:
         with:
           package: ./clients/api-typescript-axios/package.json
           token: ${{ secrets.NPM_TOKEN }}
+          access: public
