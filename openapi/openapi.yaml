@@ -3,7 +3,7 @@ info:
   title: Player Character API
   description: >
     This API definition describes a Player Character API.
-  version: 1.0.1
+  version: 1.0.2
   contact:
     name: API Support
     url: 'http://www.example.com/support'
@@ -13,10 +13,74 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 paths:
   /player-characters:
-    $ref: ./paths/player-characters.yaml
+    get:
+      summary: Get all player characters
+      operationId: listPlayerCharacters
+      tags:
+        - Player Character
+      responses:
+        '200':
+          description: A list of player characters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./components/schemas/PlayerCharacter.yaml
   /player-characters/{playerCharacterId}:
-    $ref: ./paths/player-characters_{playerCharacterId}.yaml
+    get:
+      summary: Get a specific player character by ID
+      operationId: getPlayerCharacter
+      tags:
+        - Player Character
+      parameters:
+        - name: playerCharacterId
+          in: path
+          required: true
+          description: ID of the player character to get
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A player character
+          content:
+            application/json:
+              schema:
+                $ref: ./components/schemas/PlayerCharacter.yaml
   /roguish-feats:
-    $ref: ./paths/roguish-feats.yaml
+    get:
+      summary: Get all roguish feats
+      operationId: listRougishFeats
+      tags:
+        - Roguish Feat
+      responses:
+        '200':
+          description: A list of all roguish feats
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./components/schemas/RoguishFeat.yaml
   /roguish-feats/{roguishFeatId}:
-    $ref: ./paths/roguish-feats_{roguishFeatId}.yaml
+    get:
+      summary: Get a specific roguish feat by ID
+      operationId: getRougishFeat
+      tags:
+        - Roguish Feat
+      parameters:
+        - name: roguishFeatId
+          in: path
+          required: true
+          description: ID of the roguish feat to get
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A list of all roguish feats
+          content:
+            application/json:
+              schema:
+                $ref: ./components/schemas/RoguishFeat.yaml
