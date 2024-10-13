@@ -1,0 +1,8 @@
+type: object
+properties:
+  code:
+    description: The unique code for a equipment tag
+    type: string
+  name:
+    description: The name of the equipment tag
+    type: string

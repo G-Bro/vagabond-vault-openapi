@@ -3,7 +3,7 @@ info:
   title: Player Character API
   description: >
     This API definition describes a Player Character API.
-  version: 1.0.2
+  version: 1.1.0
   contact:
     name: API Support
     url: 'http://www.example.com/support'
@@ -84,3 +84,39 @@ paths:
             application/json:
               schema:
                 $ref: ./components/schemas/RoguishFeat.yaml
+  /equipment/:
+    get:
+      summary: Get all equipment
+      operationId: listEquipment
+      tags:
+        - Equipment
+      responses:
+        '200':
+          description: A list of all equipment
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./components/schemas/Equipment.yaml
+  /equipment/{equipmentId}:
+    get:
+      summary: Get a specific equipment by ID
+      operationId: getEquipment
+      tags:
+        - Equipment
+      parameters:
+        - name: equipmentId
+          in: path
+          required: true
+          description: ID of the equipment to get
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A list of all equipment
+          content:
+            application/json:
+              schema:
+                $ref: ./components/schemas/Equipment.yaml

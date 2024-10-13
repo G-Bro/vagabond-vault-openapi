@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: The unique identifier for a equipment tag
+    type: integer
+  code:
+    description: The unique code for a equipment tag
+    type: string
+  name:
+    description: The name of the equipment tag
+    type: string
+  description:
+    description: The description of the equipment tag
+    type: string

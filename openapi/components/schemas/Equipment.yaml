@@ -1,0 +1,33 @@
+type: object
+properties:
+  id:
+    description: The unique identifier
+    type: integer
+  name:
+    description: The name of the equipment
+    type: string
+  description:
+    description: The description of the equipment
+    type: string
+    nullable: true
+  source:
+    $ref: ./Source.yaml
+  value:
+    description: The value of the equipment
+    type: integer
+  load:
+    description: The load of the equipment
+    type: integer
+  wear_slots:
+    description: The wear slots of the equipment
+    type: integer
+  tags:
+    type: array
+    nullable: true
+    items:
+      $ref: ./EquipmentTag.yaml
+  range:
+    type: array
+    nullable: true
+    items:
+      $ref: ./Range.yaml
