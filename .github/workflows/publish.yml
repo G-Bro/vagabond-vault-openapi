@@ -6,7 +6,6 @@ on:
       - production
 jobs:  
   publish:
-    needs: generate_code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
