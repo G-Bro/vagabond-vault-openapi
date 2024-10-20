@@ -1,0 +1,11 @@
+type: object
+properties:
+  equipment_id:
+    description: The unique identifier for an equipment
+    type: integer
+  quantity:
+    description: The quantity of the equipment
+    type: integer
+  wear:
+    description: The wear of the equipment
+    type: integer
