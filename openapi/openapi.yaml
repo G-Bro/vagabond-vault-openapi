@@ -51,7 +51,7 @@ paths:
   /player-characters/{playerCharacterId}/equipment:
     get:
       summary: Get all equipment for a specific player character
-      operationId: listEquipment
+      operationId: listPlayerEquipment
       tags:
         - Player Character
       parameters:
@@ -73,7 +73,7 @@ paths:
                   $ref: ./components/schemas/Equipment.yaml
     post:
       summary: Add equipment to a specific player character
-      operationId: addEquipment
+      operationId: addPlayerEquipment
       tags:
         - Player Character
       parameters:
