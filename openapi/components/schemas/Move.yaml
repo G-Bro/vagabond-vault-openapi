@@ -2,7 +2,8 @@ type: object
 properties:
   id:
     description: The unique identifier for a move
-    type: integer
+    type: string
+    format: uuid
   code:
     description: The unique code for a move
     type: string

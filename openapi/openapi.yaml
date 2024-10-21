@@ -82,8 +82,8 @@ paths:
           required: true
           description: ID of the player character to add equipment to
           schema:
-            type: integer
-            format: int64
+            type: string
+            format: uuid
       requestBody:
         description: Equipment object to add
         required: true
@@ -127,8 +127,8 @@ paths:
           required: true
           description: ID of the roguish feat to get
           schema:
-            type: integer
-            format: int64
+            type: string
+            format: uuid
       responses:
         '200':
           description: A list of all roguish feats
@@ -170,8 +170,8 @@ paths:
           required: true
           description: ID of the equipment to get
           schema:
-            type: integer
-            format: int64
+            type: string
+            format: uuid
       responses:
         '200':
           description: A list of all equipment
@@ -206,8 +206,8 @@ paths:
           required: true
           description: ID of the move to get
           schema:
-            type: integer
-            format: int64
+            type: string
+            format: uuid
       responses:
         '200':
           description: A list of all moves

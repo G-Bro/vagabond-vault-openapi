@@ -2,7 +2,8 @@ type: object
 properties:
   id:
     description: The unique identifier for a choice
-    type: integer
+    type: string
+    format: uuid
   referenceCode:
     description: The unique reference code for a choice
     type: string

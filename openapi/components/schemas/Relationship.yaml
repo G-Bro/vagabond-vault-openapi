@@ -2,7 +2,8 @@ type: object
 properties:
   id:
     description: The unique identifier for a relationship
-    type: integer
+    type: string
+    format: uuid
   faction:
     description: The faction of the relationship
     $ref: ./Faction.yaml

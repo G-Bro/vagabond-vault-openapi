@@ -2,7 +2,8 @@ type: object
 properties:
   id:
     description: The unique identifier for a faction
-    type: integer
+    type: string
+    format: uuid
   code:
     description: The unique code for a faction
     type: string

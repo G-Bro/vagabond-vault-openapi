@@ -2,7 +2,8 @@ type: object
 properties:
   id:
     description: The unique identifier for a bonus
-    type: integer
+    type: string
+    format: uuid
   value:
     description: The value of the bonus
     type: integer
