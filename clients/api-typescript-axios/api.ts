@@ -31,10 +31,10 @@ import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerM
 export interface Bonus {
     /**
      * The unique identifier for a bonus
-     * @type {number}
+     * @type {string}
      * @memberof Bonus
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The value of the bonus
      * @type {number}
@@ -56,10 +56,10 @@ export interface Bonus {
 export interface Choice {
     /**
      * The unique identifier for a choice
-     * @type {number}
+     * @type {string}
      * @memberof Choice
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique reference code for a choice
      * @type {string}
@@ -107,10 +107,10 @@ export type ChoiceChoiceResource = Bonus | Drive | Move | Nature | RoguishFeat |
 export interface Drive {
     /**
      * The unique identifier for a drive
-     * @type {number}
+     * @type {string}
      * @memberof Drive
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a drive
      * @type {string}
@@ -224,10 +224,10 @@ export interface Equipment1 {
 export interface EquipmentTag {
     /**
      * The unique identifier for a equipment tag
-     * @type {number}
+     * @type {string}
      * @memberof EquipmentTag
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a equipment tag
      * @type {string}
@@ -261,10 +261,10 @@ export interface EquipmentTag {
 export interface Faction {
     /**
      * The unique identifier for a faction
-     * @type {number}
+     * @type {string}
      * @memberof Faction
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a faction
      * @type {string}
@@ -298,10 +298,10 @@ export interface Faction {
 export interface Move {
     /**
      * The unique identifier for a move
-     * @type {number}
+     * @type {string}
      * @memberof Move
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a move
      * @type {string}
@@ -329,10 +329,10 @@ export interface Move {
 export interface Nature {
     /**
      * The unique identifier for a drive
-     * @type {number}
+     * @type {string}
      * @memberof Nature
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a drive
      * @type {string}
@@ -360,10 +360,10 @@ export interface Nature {
 export interface Playbook {
     /**
      * The unique identifier for a drive
-     * @type {number}
+     * @type {string}
      * @memberof Playbook
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a drive
      * @type {string}
@@ -482,10 +482,10 @@ export interface PlaybookSkills {
 export interface PlayerCharacter {
     /**
      * The unique identifier for a player character
-     * @type {number}
+     * @type {string}
      * @memberof PlayerCharacter
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The name of the player character
      * @type {string}
@@ -617,10 +617,10 @@ export interface Range {
 export interface Relationship {
     /**
      * The unique identifier for a relationship
-     * @type {number}
+     * @type {string}
      * @memberof Relationship
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * 
      * @type {Faction}
@@ -654,10 +654,10 @@ export interface Relationship {
 export interface RoguishFeat {
     /**
      * The unique identifier for a roguish feat
-     * @type {number}
+     * @type {string}
      * @memberof RoguishFeat
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a roguish feat
      * @type {string}
@@ -691,10 +691,10 @@ export interface RoguishFeat {
 export interface Skill {
     /**
      * The unique identifier for a skill
-     * @type {number}
+     * @type {string}
      * @memberof Skill
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a skill
      * @type {string}
@@ -741,10 +741,10 @@ export type SkillTypeEnum = typeof SkillTypeEnum[keyof typeof SkillTypeEnum];
 export interface Source {
     /**
      * The unique identifier for a source
-     * @type {number}
+     * @type {string}
      * @memberof Source
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a source
      * @type {string}
@@ -766,10 +766,10 @@ export interface Source {
 export interface Stat {
     /**
      * The unique identifier for a stat
-     * @type {number}
+     * @type {string}
      * @memberof Stat
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * The unique code for a stat
      * @type {string}
@@ -805,11 +805,11 @@ export const EquipmentApiAxiosParamCreator = function (configuration?: Configura
         /**
          * 
          * @summary Get a specific equipment by ID
-         * @param {number} equipmentId ID of the equipment to get
+         * @param {string} equipmentId ID of the equipment to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEquipment: async (equipmentId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getEquipment: async (equipmentId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'equipmentId' is not null or undefined
             assertParamExists('getEquipment', 'equipmentId', equipmentId)
             const localVarPath = `/equipment/{equipmentId}`
@@ -884,11 +884,11 @@ export const EquipmentApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get a specific equipment by ID
-         * @param {number} equipmentId ID of the equipment to get
+         * @param {string} equipmentId ID of the equipment to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getEquipment(equipmentId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Equipment>> {
+        async getEquipment(equipmentId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Equipment>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEquipment(equipmentId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['EquipmentApi.getEquipment']?.[localVarOperationServerIndex]?.url;
@@ -920,11 +920,11 @@ export const EquipmentApiFactory = function (configuration?: Configuration, base
         /**
          * 
          * @summary Get a specific equipment by ID
-         * @param {number} equipmentId ID of the equipment to get
+         * @param {string} equipmentId ID of the equipment to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEquipment(equipmentId: number, options?: RawAxiosRequestConfig): AxiosPromise<Equipment> {
+        getEquipment(equipmentId: string, options?: RawAxiosRequestConfig): AxiosPromise<Equipment> {
             return localVarFp.getEquipment(equipmentId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -950,12 +950,12 @@ export class EquipmentApi extends BaseAPI {
     /**
      * 
      * @summary Get a specific equipment by ID
-     * @param {number} equipmentId ID of the equipment to get
+     * @param {string} equipmentId ID of the equipment to get
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof EquipmentApi
      */
-    public getEquipment(equipmentId: number, options?: RawAxiosRequestConfig) {
+    public getEquipment(equipmentId: string, options?: RawAxiosRequestConfig) {
         return EquipmentApiFp(this.configuration).getEquipment(equipmentId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -983,11 +983,11 @@ export const MoveApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * 
          * @summary Get a specific move by ID
-         * @param {number} moveId ID of the move to get
+         * @param {string} moveId ID of the move to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMove: async (moveId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMove: async (moveId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'moveId' is not null or undefined
             assertParamExists('getMove', 'moveId', moveId)
             const localVarPath = `/moves/{moveId}`
@@ -1057,11 +1057,11 @@ export const MoveApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get a specific move by ID
-         * @param {number} moveId ID of the move to get
+         * @param {string} moveId ID of the move to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMove(moveId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Move>> {
+        async getMove(moveId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Move>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMove(moveId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MoveApi.getMove']?.[localVarOperationServerIndex]?.url;
@@ -1092,11 +1092,11 @@ export const MoveApiFactory = function (configuration?: Configuration, basePath?
         /**
          * 
          * @summary Get a specific move by ID
-         * @param {number} moveId ID of the move to get
+         * @param {string} moveId ID of the move to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMove(moveId: number, options?: RawAxiosRequestConfig): AxiosPromise<Move> {
+        getMove(moveId: string, options?: RawAxiosRequestConfig): AxiosPromise<Move> {
             return localVarFp.getMove(moveId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1121,12 +1121,12 @@ export class MoveApi extends BaseAPI {
     /**
      * 
      * @summary Get a specific move by ID
-     * @param {number} moveId ID of the move to get
+     * @param {string} moveId ID of the move to get
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MoveApi
      */
-    public getMove(moveId: number, options?: RawAxiosRequestConfig) {
+    public getMove(moveId: string, options?: RawAxiosRequestConfig) {
         return MoveApiFp(this.configuration).getMove(moveId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1153,12 +1153,12 @@ export const PlayerCharacterApiAxiosParamCreator = function (configuration?: Con
         /**
          * 
          * @summary Add equipment to a specific player character
-         * @param {number} playerCharacterId ID of the player character to add equipment to
+         * @param {string} playerCharacterId ID of the player character to add equipment to
          * @param {Equipment1} equipment1 Equipment object to add
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPlayerEquipment: async (playerCharacterId: number, equipment1: Equipment1, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addPlayerEquipment: async (playerCharacterId: string, equipment1: Equipment1, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'playerCharacterId' is not null or undefined
             assertParamExists('addPlayerEquipment', 'playerCharacterId', playerCharacterId)
             // verify required parameter 'equipment1' is not null or undefined
@@ -1301,12 +1301,12 @@ export const PlayerCharacterApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Add equipment to a specific player character
-         * @param {number} playerCharacterId ID of the player character to add equipment to
+         * @param {string} playerCharacterId ID of the player character to add equipment to
          * @param {Equipment1} equipment1 Equipment object to add
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addPlayerEquipment(playerCharacterId: number, equipment1: Equipment1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Equipment>>> {
+        async addPlayerEquipment(playerCharacterId: string, equipment1: Equipment1, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Equipment>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addPlayerEquipment(playerCharacterId, equipment1, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PlayerCharacterApi.addPlayerEquipment']?.[localVarOperationServerIndex]?.url;
@@ -1363,12 +1363,12 @@ export const PlayerCharacterApiFactory = function (configuration?: Configuration
         /**
          * 
          * @summary Add equipment to a specific player character
-         * @param {number} playerCharacterId ID of the player character to add equipment to
+         * @param {string} playerCharacterId ID of the player character to add equipment to
          * @param {Equipment1} equipment1 Equipment object to add
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addPlayerEquipment(playerCharacterId: number, equipment1: Equipment1, options?: RawAxiosRequestConfig): AxiosPromise<Array<Equipment>> {
+        addPlayerEquipment(playerCharacterId: string, equipment1: Equipment1, options?: RawAxiosRequestConfig): AxiosPromise<Array<Equipment>> {
             return localVarFp.addPlayerEquipment(playerCharacterId, equipment1, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1413,13 +1413,13 @@ export class PlayerCharacterApi extends BaseAPI {
     /**
      * 
      * @summary Add equipment to a specific player character
-     * @param {number} playerCharacterId ID of the player character to add equipment to
+     * @param {string} playerCharacterId ID of the player character to add equipment to
      * @param {Equipment1} equipment1 Equipment object to add
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PlayerCharacterApi
      */
-    public addPlayerEquipment(playerCharacterId: number, equipment1: Equipment1, options?: RawAxiosRequestConfig) {
+    public addPlayerEquipment(playerCharacterId: string, equipment1: Equipment1, options?: RawAxiosRequestConfig) {
         return PlayerCharacterApiFp(this.configuration).addPlayerEquipment(playerCharacterId, equipment1, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1470,11 +1470,11 @@ export const RoguishFeatApiAxiosParamCreator = function (configuration?: Configu
         /**
          * 
          * @summary Get a specific roguish feat by ID
-         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {string} roguishFeatId ID of the roguish feat to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getroguishFeat: async (roguishFeatId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getroguishFeat: async (roguishFeatId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'roguishFeatId' is not null or undefined
             assertParamExists('getroguishFeat', 'roguishFeatId', roguishFeatId)
             const localVarPath = `/roguish-feats/{roguishFeatId}`
@@ -1544,11 +1544,11 @@ export const RoguishFeatApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Get a specific roguish feat by ID
-         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {string} roguishFeatId ID of the roguish feat to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getroguishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoguishFeat>> {
+        async getroguishFeat(roguishFeatId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoguishFeat>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getroguishFeat(roguishFeatId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['RoguishFeatApi.getroguishFeat']?.[localVarOperationServerIndex]?.url;
@@ -1579,11 +1579,11 @@ export const RoguishFeatApiFactory = function (configuration?: Configuration, ba
         /**
          * 
          * @summary Get a specific roguish feat by ID
-         * @param {number} roguishFeatId ID of the roguish feat to get
+         * @param {string} roguishFeatId ID of the roguish feat to get
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getroguishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig): AxiosPromise<RoguishFeat> {
+        getroguishFeat(roguishFeatId: string, options?: RawAxiosRequestConfig): AxiosPromise<RoguishFeat> {
             return localVarFp.getroguishFeat(roguishFeatId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1608,12 +1608,12 @@ export class RoguishFeatApi extends BaseAPI {
     /**
      * 
      * @summary Get a specific roguish feat by ID
-     * @param {number} roguishFeatId ID of the roguish feat to get
+     * @param {string} roguishFeatId ID of the roguish feat to get
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RoguishFeatApi
      */
-    public getroguishFeat(roguishFeatId: number, options?: RawAxiosRequestConfig) {
+    public getroguishFeat(roguishFeatId: string, options?: RawAxiosRequestConfig) {
         return RoguishFeatApiFp(this.configuration).getroguishFeat(roguishFeatId, options).then((request) => request(this.axios, this.basePath));
     }
 
